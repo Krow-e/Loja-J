@@ -130,9 +130,6 @@
       let total = 0;
       const tipo = document.getElementById('tipo').value;
 
-      // Quantidade total do tipo (roupa ou brinquedo) não é usada diretamente no cálculo pois cálculo é cumulativo nos outros inputs.
-
-      // Estado valores
       const estadoNovo = (parseInt(document.getElementById('estadoNovo').value) || 0) * 15;
       const estadoSeminovo = (parseInt(document.getElementById('estadoSeminovo').value) || 0) * 5;
       const estadoUsado = (parseInt(document.getElementById('estadoUsado').value) || 0) * 2;
@@ -140,7 +137,6 @@
       total += estadoNovo + estadoSeminovo + estadoUsado;
 
       if (tipo === 'roupa') {
-        // Marcas
         const marcaNenhuma = (parseInt(document.getElementById('marcaNenhuma').value) || 0) * 0;
         const marcaZara = (parseInt(document.getElementById('marcaZara').value) || 0) * 8;
         const marcaTiptop = (parseInt(document.getElementById('marcaTiptop').value) || 0) * 15;
@@ -149,7 +145,6 @@
         total += marcaNenhuma + marcaZara + marcaTiptop + marcaWedze;
       }
 
-      // Avarias
       const qtdAvarias = (parseInt(document.getElementById('qtdAvarias').value) || 0) * -2;
       total += qtdAvarias;
 
@@ -165,6 +160,10 @@
       toggleCampos();
       document.getElementById('resultado').innerText = 'Valor Total: R$0,00';
     }
+
+    window.onload = () => {
+      toggleCampos();
+    };
   </script>
 </body>
 </html>
