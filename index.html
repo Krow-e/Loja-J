@@ -22,47 +22,52 @@
   </div>
 
  <div id="roupaCampos" class="group hidden">
-  <label>Público:</label>
-  <div class="field"><label>Adulto:</label><input type="number" id="qtdAdulto" min="0" value="0"></div>
-  <div class="field"><label>Infantil:</label><input type="number" id="qtdInfantil" min="0" value="0"></div>
+  <p><strong>Público:</strong></p>
+  <label for="qtdAdulto">Adulto:</label>
+  <input type="number" id="qtdAdulto" min="0" value="0">
 
-  <label>Gênero:</label>
-  <div class="field"><label>Masculino:</label><input type="number" id="qtdMasc" min="0" value="0"></div>
-  <div class="field"><label>Feminino:</label><input type="number" id="qtdFem" min="0" value="0"></div>
-  <div class="field"><label>Outro:</label><input type="number" id="qtdOutro" min="0" value="0"></div>
+  <label for="qtdInfantil">Infantil:</label>
+  <input type="number" id="qtdInfantil" min="0" value="0">
 
-  <label>Peças:</label>
-  <div class="field"><label>Camisa:</label><input type="number" id="qtdCamisa" min="0" value="0"></div>
-  <div class="field"><label>Saia:</label><input type="number" id="qtdSaia" min="0" value="0"></div>
-  <div class="field"><label>Vestido:</label><input type="number" id="qtdVestido" min="0" value="0"></div>
-  <div class="field"><label>Calça:</label><input type="number" id="qtdCalca" min="0" value="0"></div>
-  <div class="field"><label>Sapato:</label><input type="number" id="qtdSapato" min="0" value="0"></div>
+  <p><strong>Gênero:</strong></p>
+  <label for="qtdMasc">Masculino:</label>
+  <input type="number" id="qtdMasc" min="0" value="0">
 
-  <label>Marca:</label>
-  <div class="field"><label>Nenhuma:</label><input type="number" id="marcaNenhuma" min="0" value="0"></div>
-  <div class="field"><label>Zara:</label><input type="number" id="marcaZara" min="0" value="0"></div>
-  <div class="field"><label>Tip Top:</label><input type="number" id="marcaTiptop" min="0" value="0"></div>
-  <div class="field"><label>Wedze:</label><input type="number" id="marcaWedze" min="0" value="0"></div>
+  <label for="qtdFem">Feminino:</label>
+  <input type="number" id="qtdFem" min="0" value="0">
+
+  <label for="qtdOutro">Outro:</label>
+  <input type="number" id="qtdOutro" min="0" value="0">
+
+  <p><strong>Peças:</strong></p>
+  <label for="qtdCamisa">Camisa:</label>
+  <input type="number" id="qtdCamisa" min="0" value="0">
+
+  <label for="qtdSaia">Saia:</label>
+  <input type="number" id="qtdSaia" min="0" value="0">
+
+  <label for="qtdVestido">Vestido:</label>
+  <input type="number" id="qtdVestido" min="0" value="0">
+
+  <label for="qtdCalca">Calça:</label>
+  <input type="number" id="qtdCalca" min="0" value="0">
+
+  <label for="qtdSapato">Sapato:</label>
+  <input type="number" id="qtdSapato" min="0" value="0">
+
+  <p><strong>Marca:</strong></p>
+  <label for="marcaNenhuma">Nenhuma:</label>
+  <input type="number" id="marcaNenhuma" min="0" value="0">
+
+  <label for="marcaZara">Zara:</label>
+  <input type="number" id="marcaZara" min="0" value="0">
+
+  <label for="marcaTiptop">Tip Top:</label>
+  <input type="number" id="marcaTiptop" min="0" value="0">
+
+  <label for="marcaWedze">Wedze:</label>
+  <input type="number" id="marcaWedze" min="0" value="0">
 </div>
-
-<div class="group">
-  <label>Estado:</label>
-  <div class="field"><label>Novo:</label><input type="number" id="estadoNovo" min="0" value="0"></div>
-  <div class="field"><label>Seminovo:</label><input type="number" id="estadoSeminovo" min="0" value="0"></div>
-  <div class="field"><label>Usado:</label><input type="number" id="estadoUsado" min="0" value="0"></div>
-</div>
-
-<div class="group">
-  <label>Avarias:</label>
-  <input type="number" id="qtdAvarias" min="0" value="0">
-</div>
-
-<div class="group">
-  <button onclick="calcularValor()">Calcular Valor</button>
-  <button onclick="resetarCampos()">Reiniciar</button>
-  <h2 id="resultado">Valor Total: R$0,00</h2>
-</div>
-
 
 <script>
   function toggleCampos() {
