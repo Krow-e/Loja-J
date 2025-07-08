@@ -1,0 +1,193 @@
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
+export default function AvaliadorBrecho() {
+  const [step, setStep] = useState("inicio");
+  const [tipo, setTipo] = useState("");
+  const [quantidadeTipo, setQuantidadeTipo] = useState(1);
+  const [categoria, setCategoria] = useState("");
+  const [genero, setGenero] = useState("");
+  const [peca, setPeca] = useState("");
+  const [quantidadePeca, setQuantidadePeca] = useState(1);
+  const [estado, setEstado] = useState("");
+  const [quantidadeEstado, setQuantidadeEstado] = useState(1);
+  const [marca, setMarca] = useState("");
+  const [quantidadeMarca, setQuantidadeMarca] = useState(1);
+  const [avarias, setAvarias] = useState(0);
+
+  const valoresEstado = {
+    Novo: 15,
+    Seminovo: 5,
+    Usado: 2,
+  };
+
+  const valoresMarca = {
+    Nenhuma: 0,
+    Zara: 8,
+    "Tip Top": 15,
+    Wedze: 8,
+  };
+
+  const calcularTotal = () => {
+    let total = 0;
+    if (estado) total += valoresEstado[estado] * quantidadeEstado;
+    if (marca) total += valoresMarca[marca] * quantidadeMarca;
+    if (avarias > 0) total -= 2 * avarias;
+    return total;
+  };
+
+  const resetar = () => {
+    setStep("inicio");
+    setTipo("");
+    setQuantidadeTipo(1);
+    setCategoria("");
+    setGenero("");
+    setPeca("");
+    setQuantidadePeca(1);
+    setEstado("");
+    setQuantidadeEstado(1);
+    setMarca("");
+    setQuantidadeMarca(1);
+    setAvarias(0);
+  };
+
+  return (
+    <div className="max-w-xl mx-auto p-4 space-y-4">
+      {step === "inicio" && (
+        <Card>
+          <CardContent className="space-y-2 p-4">
+            <h2 className="text-xl font-bold">Tipo de Produto</h2>
+            <Select onValueChange={setTipo}>
+              <SelectTrigger><SelectValue placeholder="Selecione o tipo" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="roupa">Roupa</SelectItem>
+                <SelectItem value="brinquedo">Brinquedo</SelectItem>
+              </SelectContent>
+            </Select>
+            <Input
+              type="number"
+              value={quantidadeTipo}
+              min={1}
+              onChange={(e) => setQuantidadeTipo(Number(e.target.value))}
+              placeholder="Quantidade"
+            />
+            <Button onClick={() => setStep(tipo === "roupa" ? "roupa" : "estado")}>Avançar</Button>
+          </CardContent>
+        </Card>
+      )}
+
+      {step === "roupa" && (
+        <Card>
+          <CardContent className="space-y-2 p-4">
+            <h2 className="text-xl font-bold">Categoria da Roupa</h2>
+            <Select onValueChange={setCategoria}>
+              <SelectTrigger><SelectValue placeholder="Selecione a categoria" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="adulto">Adulto</SelectItem>
+                <SelectItem value="infantil">Infantil</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select onValueChange={setGenero}>
+              <SelectTrigger><SelectValue placeholder="Selecione o gênero" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="masculino">Masculino</SelectItem>
+                <SelectItem value="feminino">Feminino</SelectItem>
+                <SelectItem value="outro">Outro</SelectItem>
+              </SelectContent>
+            </Select>
+            <Select onValueChange={setPeca}>
+              <SelectTrigger><SelectValue placeholder="Selecione a peça" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="camisa">Camisa</SelectItem>
+                <SelectItem value="saia">Saia</SelectItem>
+                <SelectItem value="vestido">Vestido</SelectItem>
+                <SelectItem value="calca">Calça</SelectItem>
+                <SelectItem value="sapato">Sapato</SelectItem>
+              </SelectContent>
+            </Select>
+            <Input
+              type="number"
+              value={quantidadePeca}
+              min={1}
+              onChange={(e) => setQuantidadePeca(Number(e.target.value))}
+              placeholder="Quantidade da peça"
+            />
+            <Button onClick={() => setStep("estado")}>Próximo</Button>
+          </CardContent>
+        </Card>
+      )}
+
+      {step === "estado" && (
+        <Card>
+          <CardContent className="space-y-2 p-4">
+            <h2 className="text-xl font-bold">Estado do Item</h2>
+            <Select onValueChange={setEstado}>
+              <SelectTrigger><SelectValue placeholder="Selecione o estado" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Novo">Novo (+R$15,00)</SelectItem>
+                <SelectItem value="Seminovo">Seminovo (+R$5,00)</SelectItem>
+                <SelectItem value="Usado">Usado (+R$2,00)</SelectItem>
+              </SelectContent>
+            </Select>
+            <Input
+              type="number"
+              value={quantidadeEstado}
+              min={1}
+              onChange={(e) => setQuantidadeEstado(Number(e.target.value))}
+              placeholder="Quantidade"
+            />
+            <Button onClick={() => setStep(tipo === "roupa" ? "marca" : "resultado")}>Avançar</Button>
+          </CardContent>
+        </Card>
+      )}
+
+      {step === "marca" && (
+        <Card>
+          <CardContent className="space-y-2 p-4">
+            <h2 className="text-xl font-bold">Marca da Roupa</h2>
+            <Select onValueChange={setMarca}>
+              <SelectTrigger><SelectValue placeholder="Selecione a marca" /></SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Nenhuma">Nenhuma</SelectItem>
+                <SelectItem value="Zara">Zara (+R$8,00)</SelectItem>
+                <SelectItem value="Tip Top">Tip Top (+R$15,00)</SelectItem>
+                <SelectItem value="Wedze">Wedze (+R$8,00)</SelectItem>
+              </SelectContent>
+            </Select>
+            <Input
+              type="number"
+              value={quantidadeMarca}
+              min={1}
+              onChange={(e) => setQuantidadeMarca(Number(e.target.value))}
+              placeholder="Quantidade"
+            />
+            <Button onClick={() => setStep("resultado")}>Próximo</Button>
+          </CardContent>
+        </Card>
+      )}
+
+      {step === "resultado" && (
+        <Card>
+          <CardContent className="space-y-2 p-4">
+            <h2 className="text-xl font-bold">Avarias</h2>
+            <Input
+              type="number"
+              value={avarias}
+              min={0}
+              onChange={(e) => setAvarias(Number(e.target.value))}
+              placeholder="Quantidade de Avarias"
+            />
+            <p className="text-lg font-semibold">Valor Final: R${calcularTotal().toFixed(2)}</p>
+            <div className="flex gap-2">
+              <Button onClick={() => setStep("estado")}>Voltar</Button>
+              <Button onClick={resetar}>Recomeçar</Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+    </div>
+  );
+}
