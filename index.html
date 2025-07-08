@@ -2,12 +2,93 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Joaninha Brechó</title>
-  <link rel="stylesheet" href="style.css" />
-
+  
   <!-- Fonte Bungee -->
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet" />
+  
+  <style>
+    body {
+      font-family: 'Bungee', cursive;
+      padding: 20px;
+      background-color: #1c1c1c;
+      color: #ffffff;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    h1 {
+      background-color: #8b0000;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      color: #fff;
+      font-size: 2.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    label {
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+
+    input[type="number"],
+    select {
+      padding: 5px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 10px;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #2e2e2e;
+      color: #fff;
+    }
+
+    input[type="number"]:focus,
+    select:focus {
+      outline: none;
+      background-color: #3c3c3c;
+    }
+
+    .group {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #8b0000;
+      background-color: #2e2e2e;
+    }
+
+    button {
+      background-color: #8b0000;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-right: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Bungee', cursive;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #a60000;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #resultado {
+      font-size: 1.5em;
+      margin-top: 10px;
+      color: #ffffff;
+      background-color: #8b0000;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <h1>Joaninha Brechó</h1>
@@ -23,38 +104,38 @@
 
   <div id="roupaCampos" class="group hidden">
     <label>Público:</label>
-    Adulto: <input type="number" id="qtdAdulto" min="0" value="0">
-    Infantil: <input type="number" id="qtdInfantil" min="0" value="0">
+    Adulto: <input type="number" id="qtdAdulto" min="0" value="0" />
+    Infantil: <input type="number" id="qtdInfantil" min="0" value="0" />
 
     <label>Gênero:</label>
-    Masculino: <input type="number" id="qtdMasc" min="0" value="0">
-    Feminino: <input type="number" id="qtdFem" min="0" value="0">
-    Outro: <input type="number" id="qtdOutro" min="0" value="0">
+    Masculino: <input type="number" id="qtdMasc" min="0" value="0" />
+    Feminino: <input type="number" id="qtdFem" min="0" value="0" />
+    Outro: <input type="number" id="qtdOutro" min="0" value="0" />
 
     <label>Peças:</label>
-    Camisa: <input type="number" id="qtdCamisa" min="0" value="0">
-    Saia: <input type="number" id="qtdSaia" min="0" value="0">
-    Vestido: <input type="number" id="qtdVestido" min="0" value="0">
-    Calça: <input type="number" id="qtdCalca" min="0" value="0">
-    Sapato: <input type="number" id="qtdSapato" min="0" value="0">
+    Camisa: <input type="number" id="qtdCamisa" min="0" value="0" />
+    Saia: <input type="number" id="qtdSaia" min="0" value="0" />
+    Vestido: <input type="number" id="qtdVestido" min="0" value="0" />
+    Calça: <input type="number" id="qtdCalca" min="0" value="0" />
+    Sapato: <input type="number" id="qtdSapato" min="0" value="0" />
 
     <label>Marca:</label>
-    Nenhuma: <input type="number" id="marcaNenhuma" min="0" value="0">
-    Zara: <input type="number" id="marcaZara" min="0" value="0">
-    Tip Top: <input type="number" id="marcaTiptop" min="0" value="0">
-    Wedze: <input type="number" id="marcaWedze" min="0" value="0">
+    Nenhuma: <input type="number" id="marcaNenhuma" min="0" value="0" />
+    Zara: <input type="number" id="marcaZara" min="0" value="0" />
+    Tip Top: <input type="number" id="marcaTiptop" min="0" value="0" />
+    Wedze: <input type="number" id="marcaWedze" min="0" value="0" />
   </div>
 
   <div class="group">
     <label>Estado:</label>
-    Novo: <input type="number" id="estadoNovo" min="0" value="0">
-    Seminovo: <input type="number" id="estadoSeminovo" min="0" value="0">
-    Usado: <input type="number" id="estadoUsado" min="0" value="0">
+    Novo: <input type="number" id="estadoNovo" min="0" value="0" />
+    Seminovo: <input type="number" id="estadoSeminovo" min="0" value="0" />
+    Usado: <input type="number" id="estadoUsado" min="0" value="0" />
   </div>
 
   <div class="group">
     <label>Avarias:</label>
-    <input type="number" id="qtdAvarias" min="0" value="0">
+    <input type="number" id="qtdAvarias" min="0" value="0" />
   </div>
 
   <div class="group">
@@ -67,7 +148,11 @@
     function toggleCampos() {
       const tipo = document.getElementById('tipo').value;
       const roupaCampos = document.getElementById('roupaCampos');
-      roupaCampos.classList.toggle('hidden', tipo !== 'roupa');
+      if (tipo === 'roupa') {
+        roupaCampos.classList.remove('hidden');
+      } else {
+        roupaCampos.classList.add('hidden');
+      }
     }
 
     function calcularValor() {
@@ -98,15 +183,13 @@
     }
 
     function resetarCampos() {
-      document.querySelectorAll('input[type="number"]').forEach(input => input.value = 0);
+      document.querySelectorAll('input[type="number"]').forEach(input => (input.value = 0));
       document.getElementById('tipo').value = "";
       toggleCampos();
       document.getElementById('resultado').innerText = 'Valor Total: R$0,00';
     }
 
-    window.onload = () => {
-      toggleCampos();
-    };
+    window.onload = toggleCampos;
   </script>
 </body>
 </html>
