@@ -2,119 +2,66 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Joaninha Brechó - Avaliação de Itens</title>
-  
-  <!-- Fonte Bungee -->
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet" />
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joaninha Brechó</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonte Bungee -->
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Joaninha Brechó</h1>
-    <p class="subtitle">Sistema de Avaliação de Itens</p>
-  </header>
+  <h1>Joaninha Brechó</h1>
 
-  <main>
-    <section class="group">
-      <label for="tipo">Tipo de item:</label>
-      <select id="tipo" onchange="toggleCampos()">
-        <option value="">-- Selecione --</option>
-        <option value="roupa">Roupa</option>
-        <option value="brinquedo">Brinquedo</option>
-      </select>
-    </section>
+  <div class="group">
+    <label>Tipo de item:</label>
+    <select id="tipo" onchange="toggleCampos()">
+      <option value="">-- Selecione --</option>
+      <option value="roupa">Roupa</option>
+      <option value="brinquedo">Brinquedo</option>
+    </select>
+  </div>
 
-    <section id="roupaCampos" class="group hidden">
-      <label>Público:</label>
-      <div class="inline-inputs">
-        <label>Adulto
-          <input type="number" id="qtdAdulto" min="0" value="0" />
-        </label>
-        <label>Infantil
-          <input type="number" id="qtdInfantil" min="0" value="0" />
-        </label>
-      </div>
+  <div id="roupaCampos" class="group hidden">
+    <label>Público:</label>
+    Adulto: <input type="number" id="qtdAdulto" min="0" value="0">
+    Infantil: <input type="number" id="qtdInfantil" min="0" value="0">
 
-      <label>Gênero:</label>
-      <div class="inline-inputs">
-        <label>Masculino
-          <input type="number" id="qtdMasc" min="0" value="0" />
-        </label>
-        <label>Feminino
-          <input type="number" id="qtdFem" min="0" value="0" />
-        </label>
-        <label>Outro
-          <input type="number" id="qtdOutro" min="0" value="0" />
-        </label>
-      </div>
+    <label>Gênero:</label>
+    Masculino: <input type="number" id="qtdMasc" min="0" value="0">
+    Feminino: <input type="number" id="qtdFem" min="0" value="0">
+    Outro: <input type="number" id="qtdOutro" min="0" value="0">
 
-      <label>Peças:</label>
-      <div class="inline-inputs">
-        <label>Camisa
-          <input type="number" id="qtdCamisa" min="0" value="0" />
-        </label>
-        <label>Saia
-          <input type="number" id="qtdSaia" min="0" value="0" />
-        </label>
-        <label>Vestido
-          <input type="number" id="qtdVestido" min="0" value="0" />
-        </label>
-        <label>Calça
-          <input type="number" id="qtdCalca" min="0" value="0" />
-        </label>
-        <label>Sapato
-          <input type="number" id="qtdSapato" min="0" value="0" />
-        </label>
-      </div>
+    <label>Peças:</label>
+    Camisa: <input type="number" id="qtdCamisa" min="0" value="0">
+    Saia: <input type="number" id="qtdSaia" min="0" value="0">
+    Vestido: <input type="number" id="qtdVestido" min="0" value="0">
+    Calça: <input type="number" id="qtdCalca" min="0" value="0">
+    Sapato: <input type="number" id="qtdSapato" min="0" value="0">
 
-      <label>Marca:</label>
-      <div class="inline-inputs">
-        <label>Nenhuma
-          <input type="number" id="marcaNenhuma" min="0" value="0" />
-        </label>
-        <label>Zara
-          <input type="number" id="marcaZara" min="0" value="0" />
-        </label>
-        <label>Tip Top
-          <input type="number" id="marcaTiptop" min="0" value="0" />
-        </label>
-        <label>Wedze
-          <input type="number" id="marcaWedze" min="0" value="0" />
-        </label>
-      </div>
-    </section>
+    <label>Marca:</label>
+    Nenhuma: <input type="number" id="marcaNenhuma" min="0" value="0">
+    Zara: <input type="number" id="marcaZara" min="0" value="0">
+    Tip Top: <input type="number" id="marcaTiptop" min="0" value="0">
+    Wedze: <input type="number" id="marcaWedze" min="0" value="0">
+  </div>
 
-    <section class="group">
-      <label>Estado:</label>
-      <div class="inline-inputs">
-        <label>Novo
-          <input type="number" id="estadoNovo" min="0" value="0" />
-        </label>
-        <label>Seminovo
-          <input type="number" id="estadoSeminovo" min="0" value="0" />
-        </label>
-        <label>Usado
-          <input type="number" id="estadoUsado" min="0" value="0" />
-        </label>
-      </div>
-    </section>
+  <div class="group">
+    <label>Estado:</label>
+    Novo: <input type="number" id="estadoNovo" min="0" value="0">
+    Seminovo: <input type="number" id="estadoSeminovo" min="0" value="0">
+    Usado: <input type="number" id="estadoUsado" min="0" value="0">
+  </div>
 
-    <section class="group">
-      <label for="qtdAvarias">Avarias (quantidade):</label>
-      <input type="number" id="qtdAvarias" min="0" value="0" />
-    </section>
+  <div class="group">
+    <label>Avarias:</label>
+    <input type="number" id="qtdAvarias" min="0" value="0">
+  </div>
 
-    <section class="group actions">
-      <button onclick="calcularValor()">Calcular Valor</button>
-      <button onclick="resetarCampos()" class="reset">Reiniciar</button>
-    </section>
-
-    <section class="group resultado">
-      <h2 id="resultado">Valor Total: R$0,00</h2>
-    </section>
-  </main>
+  <div class="group">
+    <button onclick="calcularValor()">Calcular Valor</button>
+    <button onclick="resetarCampos()">Reiniciar</button>
+    <h2 id="resultado">Valor Total: R$0,00</h2>
+  </div>
 
   <script>
     function toggleCampos() {
@@ -127,33 +74,30 @@
       let total = 0;
       const tipo = document.getElementById('tipo').value;
 
-      const estadoNovo = (parseInt(document.getElementById('estadoNovo').value) || 0) * 15;
-      const estadoSeminovo = (parseInt(document.getElementById('estadoSeminovo').value) || 0) * 5;
-      const estadoUsado = (parseInt(document.getElementById('estadoUsado').value) || 0) * 2;
+      const estadoNovo = parseInt(document.getElementById('estadoNovo').value) * 15 || 0;
+      const estadoSeminovo = parseInt(document.getElementById('estadoSeminovo').value) * 5 || 0;
+      const estadoUsado = parseInt(document.getElementById('estadoUsado').value) * 2 || 0;
 
       total += estadoNovo + estadoSeminovo + estadoUsado;
 
       if (tipo === 'roupa') {
-        const marcaNenhuma = (parseInt(document.getElementById('marcaNenhuma').value) || 0) * 0;
-        const marcaZara = (parseInt(document.getElementById('marcaZara').value) || 0) * 8;
-        const marcaTiptop = (parseInt(document.getElementById('marcaTiptop').value) || 0) * 15;
-        const marcaWedze = (parseInt(document.getElementById('marcaWedze').value) || 0) * 8;
+        const marcaNenhuma = parseInt(document.getElementById('marcaNenhuma').value) * 0 || 0;
+        const marcaZara = parseInt(document.getElementById('marcaZara').value) * 8 || 0;
+        const marcaTiptop = parseInt(document.getElementById('marcaTiptop').value) * 15 || 0;
+        const marcaWedze = parseInt(document.getElementById('marcaWedze').value) * 8 || 0;
 
         total += marcaNenhuma + marcaZara + marcaTiptop + marcaWedze;
       }
 
-      const qtdAvarias = (parseInt(document.getElementById('qtdAvarias').value) || 0) * -2;
+      const qtdAvarias = parseInt(document.getElementById('qtdAvarias').value) * -2 || 0;
       total += qtdAvarias;
-
-      if (total < 0) total = 0;
 
       document.getElementById('resultado').innerText = `Valor Total: R$${total.toFixed(2).replace('.', ',')}`;
     }
 
     function resetarCampos() {
-      document.querySelectorAll('input[type="number"]').forEach(input => input.value = 0);
+      document.querySelectorAll('input[type=\"number\"]').forEach(input => input.value = 0);
       document.getElementById('tipo').value = "";
-      document.getElementById('qtdTipo').value = 1;
       toggleCampos();
       document.getElementById('resultado').innerText = 'Valor Total: R$0,00';
     }
