@@ -21,52 +21,48 @@
     </select>
   </div>
 
-  <div id="roupaCampos" class="group hidden">
-    <label>Público:</label>
-    
-    Adulto: <input type="number" id="qtdAdulto" min="0" value="0">
-    Infantil: <input type="number" id="qtdInfantil" min="0" value="0">
+ <div id="roupaCampos" class="group hidden">
+  <label>Público:</label>
+  <div class="field"><label>Adulto:</label><input type="number" id="qtdAdulto" min="0" value="0"></div>
+  <div class="field"><label>Infantil:</label><input type="number" id="qtdInfantil" min="0" value="0"></div>
 
-    <label>Gênero:</label>
-    
-    Masculino: <input type="number" id="qtdMasc" min="0" value="0">
-    Feminino: <input type="number" id="qtdFem" min="0" value="0">
-    Outro: <input type="number" id="qtdOutro" min="0" value="0">
+  <label>Gênero:</label>
+  <div class="field"><label>Masculino:</label><input type="number" id="qtdMasc" min="0" value="0"></div>
+  <div class="field"><label>Feminino:</label><input type="number" id="qtdFem" min="0" value="0"></div>
+  <div class="field"><label>Outro:</label><input type="number" id="qtdOutro" min="0" value="0"></div>
 
-    <label>Peças:</label>
-    
-    Camisa: <input type="number" id="qtdCamisa" min="0" value="0">
-    Saia: <input type="number" id="qtdSaia" min="0" value="0">
-    Vestido: <input type="number" id="qtdVestido" min="0" value="0">
-    Calça: <input type="number" id="qtdCalca" min="0" value="0">
-    Sapato: <input type="number" id="qtdSapato" min="0" value="0">
+  <label>Peças:</label>
+  <div class="field"><label>Camisa:</label><input type="number" id="qtdCamisa" min="0" value="0"></div>
+  <div class="field"><label>Saia:</label><input type="number" id="qtdSaia" min="0" value="0"></div>
+  <div class="field"><label>Vestido:</label><input type="number" id="qtdVestido" min="0" value="0"></div>
+  <div class="field"><label>Calça:</label><input type="number" id="qtdCalca" min="0" value="0"></div>
+  <div class="field"><label>Sapato:</label><input type="number" id="qtdSapato" min="0" value="0"></div>
 
-    <label>Marca:</label>
-    
-    Nenhuma: <input type="number" id="marcaNenhuma" min="0" value="0">
-    Zara: <input type="number" id="marcaZara" min="0" value="0">
-    Tip Top: <input type="number" id="marcaTiptop" min="0" value="0">
-    Wedze: <input type="number" id="marcaWedze" min="0" value="0">
-  </div>
+  <label>Marca:</label>
+  <div class="field"><label>Nenhuma:</label><input type="number" id="marcaNenhuma" min="0" value="0"></div>
+  <div class="field"><label>Zara:</label><input type="number" id="marcaZara" min="0" value="0"></div>
+  <div class="field"><label>Tip Top:</label><input type="number" id="marcaTiptop" min="0" value="0"></div>
+  <div class="field"><label>Wedze:</label><input type="number" id="marcaWedze" min="0" value="0"></div>
+</div>
 
-  <div class="group">
-    <label>Estado:</label>
-    
-    Novo: <input type="number" id="estadoNovo" min="0" value="0">
-    Seminovo: <input type="number" id="estadoSeminovo" min="0" value="0">
-    Usado: <input type="number" id="estadoUsado" min="0" value="0">
-  </div>
+<div class="group">
+  <label>Estado:</label>
+  <div class="field"><label>Novo:</label><input type="number" id="estadoNovo" min="0" value="0"></div>
+  <div class="field"><label>Seminovo:</label><input type="number" id="estadoSeminovo" min="0" value="0"></div>
+  <div class="field"><label>Usado:</label><input type="number" id="estadoUsado" min="0" value="0"></div>
+</div>
 
-  <div class="group">
-    <label>Avarias:</label>
-    <input type="number" id="qtdAvarias" min="0" value="0">
-  </div>
+<div class="group">
+  <label>Avarias:</label>
+  <input type="number" id="qtdAvarias" min="0" value="0">
+</div>
 
-  <div class="group">
-    <button onclick="calcularValor()">Calcular Valor</button>
-    <button onclick="resetarCampos()">Reiniciar</button>
-    <h2 id="resultado">Valor Total: R$0,00</h2>
-  </div>
+<div class="group">
+  <button onclick="calcularValor()">Calcular Valor</button>
+  <button onclick="resetarCampos()">Reiniciar</button>
+  <h2 id="resultado">Valor Total: R$0,00</h2>
+</div>
+
 
 <script>
   function toggleCampos() {
