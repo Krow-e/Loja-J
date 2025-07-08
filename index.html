@@ -63,48 +63,49 @@
     <h2 id="resultado">Valor Total: R$0,00</h2>
   </div>
 
-  <script>
-    function toggleCampos() {
-      const tipo = document.getElementById('tipo').value;
-      const roupaCampos = document.getElementById('roupaCampos');
-      roupaCampos.classList.toggle('hidden', tipo !== 'roupa');
+<script>
+  function toggleCampos() {
+    const tipo = document.getElementById('tipo').value;
+    const roupaCampos = document.getElementById('roupaCampos');
+    roupaCampos.classList.toggle('hidden', tipo !== 'roupa');
+  }
+
+  function calcularValor() {
+    let total = 0;
+    const tipo = document.getElementById('tipo').value;
+
+    const estadoNovo = parseInt(document.getElementById('estadoNovo').value) * 15 || 0;
+    const estadoSeminovo = parseInt(document.getElementById('estadoSeminovo').value) * 5 || 0;
+    const estadoUsado = parseInt(document.getElementById('estadoUsado').value) * 2 || 0;
+
+    total += estadoNovo + estadoSeminovo + estadoUsado;
+
+    if (tipo === 'roupa') {
+      const marcaNenhuma = parseInt(document.getElementById('marcaNenhuma').value) * 0 || 0;
+      const marcaZara = parseInt(document.getElementById('marcaZara').value) * 8 || 0;
+      const marcaTiptop = parseInt(document.getElementById('marcaTiptop').value) * 15 || 0;
+      const marcaWedze = parseInt(document.getElementById('marcaWedze').value) * 8 || 0;
+
+      total += marcaNenhuma + marcaZara + marcaTiptop + marcaWedze;
     }
 
-    function calcularValor() {
-      let total = 0;
-      const tipo = document.getElementById('tipo').value;
+    const qtdAvarias = parseInt(document.getElementById('qtdAvarias').value) * -2 || 0;
+    total += qtdAvarias;
 
-      const estadoNovo = parseInt(document.getElementById('estadoNovo').value) * 15 || 0;
-      const estadoSeminovo = parseInt(document.getElementById('estadoSeminovo').value) * 5 || 0;
-      const estadoUsado = parseInt(document.getElementById('estadoUsado').value) * 2 || 0;
+    document.getElementById('resultado').innerText = `Valor Total: R$${total.toFixed(2).replace('.', ',')}`;
+  }
 
-      total += estadoNovo + estadoSeminovo + estadoUsado;
+  function resetarCampos() {
+    document.querySelectorAll('input[type="number"]').forEach(input => input.value = 0);
+    document.getElementById('tipo').value = "";
+    toggleCampos();
+    document.getElementById('resultado').innerText = 'Valor Total: R$0,00';
+  }
 
-      if (tipo === 'roupa') {
-        const marcaNenhuma = parseInt(document.getElementById('marcaNenhuma').value) * 0 || 0;
-        const marcaZara = parseInt(document.getElementById('marcaZara').value) * 8 || 0;
-        const marcaTiptop = parseInt(document.getElementById('marcaTiptop').value) * 15 || 0;
-        const marcaWedze = parseInt(document.getElementById('marcaWedze').value) * 8 || 0;
+  window.onload = () => {
+    toggleCampos();
+  };
+</script>
 
-        total += marcaNenhuma + marcaZara + marcaTiptop + marcaWedze;
-      }
-
-      const qtdAvarias = parseInt(document.getElementById('qtdAvarias').value) * -2 || 0;
-      total += qtdAvarias;
-
-      document.getElementById('resultado').innerText = `Valor Total: R$${total.toFixed(2).replace('.', ',')}`;
-    }
-
-    function resetarCampos() {
-      document.querySelectorAll('input[type=\"number\"]').forEach(input => input.value = 0);
-      document.getElementById('tipo').value = "";
-      toggleCampos();
-      document.getElementById('resultado').innerText = 'Valor Total: R$0,00';
-    }
-
-    window.onload = () => {
-      toggleCampos();
-    };
-  </script>
 </body>
 </html>
